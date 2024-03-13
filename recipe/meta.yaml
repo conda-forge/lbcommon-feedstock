@@ -1,6 +1,5 @@
 {% set name = "lbcommon" %}
-{% set version = "0.0.9" %}
-
+{% set version = "0.0.10" %}
 
 package:
   name: {{ name|lower }}
@@ -8,21 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/LbCommon-{{ version }}.tar.gz
-  sha256: 3daa007fb5672e90ccd764ccabd5b9d705318d1a1c96c177d75723d3d82c43a0
-  
+  sha256: e8c878dc0459e9f8144068f4f04d1a685a2b13b4ebeb2e1dc35499c3b44768bc
+
 build:
-  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
+    - python >=3.7
+    - setuptools >=61.2
     - nose >=1.0
+    - setuptools-scm
     - pip
-    - python
-    - setuptools_scm
   run:
-    - python
+    - python >=3.7
 
 test:
   imports:
@@ -43,4 +43,3 @@ extra:
   recipe-maintainers:
     - bcouturi
     - chrisburr
-    
