@@ -27,7 +27,14 @@ requirements:
 test:
   imports:
     - LbCommon
-    - LbCommon.tests
+    - LbCommon.CMake
+    - LbCommon.ConfigFile
+    - LbCommon.Env
+    - LbCommon.Log
+    - LbCommon.Option
+    - LbCommon.Processes
+    - LbCommon.Script
+    - LbCommon.Temporary
   commands:
     - pip check
   requires:
