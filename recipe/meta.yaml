@@ -1,5 +1,5 @@
 {% set name = "lbcommon" %}
-{% set version = "0.0.10" %}
+{% set version = "0.0.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/LbCommon-{{ version }}.tar.gz
-  sha256: e8c878dc0459e9f8144068f4f04d1a685a2b13b4ebeb2e1dc35499c3b44768bc
+  sha256: 5f03c7f41f147ab9cbe0c3567731a606af958aef489be87d4100d96a09ee25e6
 
 build:
   noarch: python
@@ -27,7 +27,14 @@ requirements:
 test:
   imports:
     - LbCommon
-    - LbCommon.tests
+    - LbCommon.CMake
+    - LbCommon.ConfigFile
+    - LbCommon.Env
+    - LbCommon.Log
+    - LbCommon.Option
+    - LbCommon.Processes
+    - LbCommon.Script
+    - LbCommon.Temporary
   commands:
     - pip check
   requires:
